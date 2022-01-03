@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canal Log</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Leaflet css -->
+  <link rel="stylesheet" href="/js/leaflet.css"/>
+  <!-- Custom css  -->
+  <link rel="stylesheet" type="text/css" href="/style.css" media="screen" />
+  <script src="https://kit.fontawesome.com/6943017aff.js" crossorigin="anonymous"></script>
+  <script src="/js/leaflet.js"></script>
+  <script   src="https://code.jquery.com/jquery-3.6.0.slim.min.js"   integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="   crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/js/L.Control.Window.css">
+  <script src="/js/L.Control.Window.js"></script>
+  <link rel="stylesheet" href="/js/L.Control.fontAwesomeButton.css">
+  <script src="/js/L.Control.fontAwesomeButton.js"></script>
+    <!-- Load Esri Leaflet from CDN -->
+    <!-- <script src="https://unpkg.com/esri-leaflet@3.0.1/dist/esri-leaflet.js"
+    integrity="sha512-JmpptMCcCg+Rd6x0Dbg6w+mmyzs1M7chHCd9W8HPovnImG2nLAQWn3yltwxXRM7WjKKFFHOAKjjF2SC4CgiFBg=="
+    crossorigin=""></script> -->
+<body>
+<div id='map'></div>
+<script>
+// Set-up map
+var mymap = L.map('map');
+L.control.scale().addTo(mymap);
+mymap.setView([52.8,-1.33],7);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+}).addTo(mymap);
+// create sign-in form
+var winSignIn = L.control.window(mymap, {
+  title:'Unknown User',
+  content: '',
+  visible:true
+});
+</script>
+</body>
+</html>
